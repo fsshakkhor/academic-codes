@@ -1,0 +1,159 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+
+class Stack{
+    struct node{
+        int data;
+        node *next;
+    };
+    node *p;
+
+public:
+    Stack(){
+        p = (struct node *)(malloc(sizeof(node)));
+    }
+    void push(int value){
+        node *newnode = (struct node *)(malloc(sizeof(node)));
+        newnode->data = value;
+        newnode->next = p->next;
+        p->next = newnode;
+    }
+    int top(){
+        return (p->next)->data;
+    }
+    void pop(){
+        p = p->next;
+    }
+    bool empty(){
+        if(p->next==NULL)return 1;
+        else return 0;
+    }
+};
+
+class Queue{
+    int q[1000],fr,rear;
+public:
+    Queue(){
+        fr = rear = 0;
+    }
+    void push(int value){
+        if(fr==0)fr=1;
+        rear++;
+        q[rear] = value;
+    }
+    void pop(){
+        fr++;
+        if(fr>rear)fr=rear=0;
+    }
+    int empty(){
+        if(fr==0 and rear==0)return 1;
+        else return 0;
+    }
+    int front(){
+        return q[fr];
+    }
+
+};
+
+int matrix[102][102];
+
+void dfs(int source,int destination,int n)
+{
+    int vis[102];
+    memset(vis,0,sizeof(vis));
+    Stack st;
+    st.push(source);
+    vis[source]=1;
+    while(!st.empty()){
+        int temp = st.top();
+        st.pop();
+        if(temp!=source)cout << " -> ";
+        cout << temp;
+        if(temp==destination){
+            cout << endl;
+            cout << "Message : Found\n" << endl << endl;
+            return;
+        }
+
+        for(int i = 1;i<=n;i++){
+            if(vis[i]==0 and matrix[temp][i]==1){
+                st.push(i);
+                vis[i]=1;
+            }
+        }
+    }
+    cout << "\nMessage : Not Found\n\n\n";
+}
+void bfs(int source,int destination,int n)
+{
+    Queue Q;
+    int vis[101],pr[101],dis[101];
+    memset(vis,0,sizeof(vis));
+    memset(pr,0,sizeof(pr));
+    memset(dis,0,sizeof(dis));
+
+    Q.push(source);
+    vis[source]=1;
+    while(!Q.empty()){
+        int temp = Q.front();
+        Q.pop();
+        for(int i = 1;i<=n;i++){
+            if(vis[i]==0 and matrix[temp][i]==1){
+                Q.push(i);
+                dis[i] = dis[temp] + 1;
+                pr[i] = temp;
+                vis[i] = 1;
+            }
+        }
+    }
+    if(vis[destination]==1){
+        cout << "Shortest Path Length : " << dis[destination] << endl;
+        cout << "Path : ";
+        int node = destination;
+        while(node){
+            cout << node;
+            if(node!=source)cout << " <- ";
+            node = pr[node];
+        }
+        cout << endl<<endl;
+    }else{
+        cout << "Not Reachable\n\n";
+    }
+}
+int main()
+{
+    int n,m;
+    cout << "Enter The number of nodes and edges : ";
+    cin >> n >> m;
+    while(m--){
+        int a,b;
+        cin  >> a >> b;
+        matrix[a][b]=1;
+    }
+
+    cout << endl;
+    cout << "Here is the Adjacency Matrix:\n";
+    for(int i = 1;i<=n;i++){
+        for(int j = 1;j<=n;j++){
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+    while(true){
+        cout << "1. DFS\n";
+        cout << "2. BFS\n";
+        cout << "Have your choice : ";
+        int ch;
+        cin >> ch;
+        cout << "Enter Your Source and Destination: ";
+        int a,b;
+        cin >> a >> b;
+        if(ch==1)dfs(a,b,n);
+        else bfs(a,b,n);
+
+    }
+}
