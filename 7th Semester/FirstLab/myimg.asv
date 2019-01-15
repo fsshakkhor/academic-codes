@@ -1,0 +1,18 @@
+A = imread('scene.jfif');
+A = rgb2gray(A);
+
+[n m] = size(A);
+
+freq = zeros(256);
+for i = 1 : n
+    for j = 1 : m
+        freq(A(i,j) + 1) = freq(A(i,j) + 1) + 1; 
+    end
+end
+plot(freq);
+imhist(A);
+
+imgout = zeros(n,m,'uint8');
+imgout = 2
+imtool(A);
+imtool(imgout);
