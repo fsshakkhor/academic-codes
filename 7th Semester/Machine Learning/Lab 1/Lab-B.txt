@@ -1,0 +1,18 @@
+1. Make a matlab variable that will contain a 4x4 magic square matrix. 
+
+2. Do the followings:
+	- Load the sample data given in the file ‘titanic.csv’ containing some features. 
+	- Take the first 100 rows into a matrix.
+	- Find the mean of the ticket fares of people of those who survived vs average ticket fare of those who did not survive
+	- Find which gender of people survived the most
+	- Find the difference between the mean age of people who survived and the mean age of people who did not survive.
+What does these means tell you?
+3. Do the following:
+	- Load the sample data mtcars.csv.
+	- draw separate plots with miles_per_gallon, displacement ,Horse Power, Rear axle ratio, weight and acceleration measure in 	the x axis and miles_per_gallon in the y axis. 
+	- What does the scatterplot tell about making cars that consume less fuel
+		
+3. Plot the following functions
+	- sine for 0-2pi
+	- now do the same for cos in the same figure
+	- sigmoid
