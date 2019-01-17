@@ -1,0 +1,7 @@
+From the statistics we can conclude that,
+
+i) The people who survived had a higher mean value of their ticket fares than those people who did not survive.
+
+ii) Age did not effect the survival rate of people.
+
+iii) Female survived more than male.

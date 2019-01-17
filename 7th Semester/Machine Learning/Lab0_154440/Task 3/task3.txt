@@ -1,0 +1,11 @@
+The scatterplot tells us that,
+
+i) Cars with lower displacement consumes less fuel
+
+ii) Cars with lower horse power consumes less fuel
+
+iii) Cars with higher real axel ratio consumes less fuel
+
+iv) Low weighted cars consumes less fuel
+
+v) Acceleration does not effect the consumption of fuel
