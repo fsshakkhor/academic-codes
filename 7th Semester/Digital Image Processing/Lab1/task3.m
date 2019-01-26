@@ -1,0 +1,15 @@
+imgin = imread('yay.jpg');
+[R,C,P] = size(imgin);
+imgout = zeros(R,C,'uint8');
+onlyred = imgin;
+onlyred(:,:,2) = 0;
+onlyred(:,:,3) = 0;
+imtool(onlyred);
+onlygreen = imgin;
+onlygreen(:,:,1) = 0;
+onlygreen(:,:,3) = 0;
+imtool(onlygreen);
+onlyblue = imgin;
+onlyblue(:,:,1) = 0;
+onlyblue(:,:,2) = 0;
+imtool(onlyblue);

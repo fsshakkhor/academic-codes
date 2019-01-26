@@ -1,6 +1,5 @@
-A = imread('scene.jfif');
+A = imread('illusion.png');
 A = rgb2gray(A);
-
 [n m] = size(A);
 
 freq = zeros(256);

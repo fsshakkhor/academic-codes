@@ -1,8 +1,6 @@
 A = imread('yay.jpg');
 
-
 [n m] = size(A);
-
 
 subplot(1,4,1);
 imshow(255-A(:,:,1));
